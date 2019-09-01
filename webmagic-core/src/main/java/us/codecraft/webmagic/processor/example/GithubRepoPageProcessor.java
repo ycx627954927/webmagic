@@ -69,11 +69,11 @@ public class GithubRepoPageProcessor implements PageProcessor {
     }
 
     public static void main(String[] args) {
-        Spider.create(new GithubRepoPageProcessor())
+        Spider gitHubSpider = Spider.create(new GithubRepoPageProcessor())
                 // 从"https://github.com/code4craft"开始抓
                 .addUrl("https://github.com/code4craft")
                 //开启5个线程抓取
-                .thread(5)
-                .run();
+                .thread(5);
+        gitHubSpider.run();
     }
 }
