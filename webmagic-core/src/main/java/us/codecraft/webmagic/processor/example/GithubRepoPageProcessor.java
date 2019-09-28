@@ -3,6 +3,7 @@ package us.codecraft.webmagic.processor.example;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.pipeline.FilePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 /**
@@ -72,6 +73,7 @@ public class GithubRepoPageProcessor implements PageProcessor {
         Spider gitHubSpider = Spider.create(new GithubRepoPageProcessor())
                 // 从"https://github.com/code4craft"开始抓
                 .addUrl("https://github.com/code4craft")
+                .addPipeline(new FilePipeline("G:\\dev_data\\crawler"))
                 //开启5个线程抓取
                 .thread(5);
         gitHubSpider.run();
